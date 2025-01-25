@@ -1,0 +1,19 @@
+client:
+  base_url: https://api.up.com.au/api/v1/
+  auth:
+    type: bearer
+    token: SOURCES__UPBANK__TOKEN
+  paginator:
+    type: json_link
+    next_url_path: links.next
+
+resource_defaults:
+  endpoint:
+    params:
+      page[size]: 30
+  write_disposition: merge
+  primary_key: id
+
+resources:
+  - name: accounts
+    endpoint: accounts
