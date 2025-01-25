@@ -16,4 +16,16 @@ resource_defaults:
 
 resources:
   - name: accounts
-    endpoint: accounts
+    endpoint:
+      path: accounts
+
+  - name: transactions
+    endpoint:
+      path: transactions
+      params:
+        page[size]: 100
+        since:
+          type: incremental
+          cursor_path: attributes.createdAt
+          initial_value: 2025-01-25T00:00+11:00
+      data_selector: data

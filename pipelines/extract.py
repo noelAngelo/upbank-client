@@ -1,4 +1,5 @@
 import pathlib
+import argparse
 import dlt.pipeline
 from src.api.client import UpbankClient
 
@@ -26,11 +27,22 @@ def load_upbank(config_path: pathlib.Path, destination: str):
 
     # Run the pipeline
     upbank_source = upbank.get_source(path=config_path)
-    load_info = pipeline.run(upbank_source)
-    print(load_info)
+
+    if destination == 'filesystem':
+        pipeline.run(upbank_source, table_format="delta")
+
+    elif destination == "postgres":
+        pipeline.run(upbank_source)
+
+    else:
+        raise ValueError(f"Unsupported destination: {destination}")
 
 
 if __name__ == "__main__":
+
+    parser = argparse.ArgumentParser('Load data from the Upbank API', add_help=True)
+    parser.add_argument('-d', '--destination', type=str, default='postgres', help='Destination to load data to')
+    args = parser.parse_args()
 
     # Determine the project root directory
     project_root = pathlib.Path(__file__).resolve().parents[1]
@@ -40,4 +52,4 @@ if __name__ == "__main__":
     config_file = config_dir / "upbank.yaml"
 
     # Load upbank data using the specified configuration file
-    load_upbank(config_file, destination="filesystem")
+    load_upbank(config_file, destination=args.destination)
