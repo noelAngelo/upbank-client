@@ -1,6 +1,7 @@
 from pathlib import Path
 import yaml
 
+
 class ConfigParser:
     def __init__(self, path: Path):
         self.path = path

@@ -1,7 +1,7 @@
 import pathlib
 import dlt.pipeline
-
 from src.api.client import UpbankClient
+
 
 def load_upbank(config_path: pathlib.Path, destination: str):
     """
@@ -29,14 +29,15 @@ def load_upbank(config_path: pathlib.Path, destination: str):
     load_info = pipeline.run(upbank_source)
     print(load_info)
 
+
 if __name__ == "__main__":
 
     # Determine the project root directory
     project_root = pathlib.Path(__file__).resolve().parents[2]
 
     # Define the configuration directory and file path
-    config_dir = project_root / 'config'
-    config_file = config_dir / 'upbank.yaml'
+    config_dir = project_root / "config"
+    config_file = config_dir / "upbank.yaml"
 
     # Load upbank data using the specified configuration file
-    load_upbank(config_file, destination='filesystem')
+    load_upbank(config_file, destination="filesystem")
