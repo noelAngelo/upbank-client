@@ -10,11 +10,12 @@ packages = [
 
 [tool.poetry.dependencies]
 python = ">=3.10,<3.13"
-dlt = {extras = ["filesystem"], version = "^1.5.0"}
+dlt = {extras = ["deltalake"], version = "^1.5.0"}
 black = "^24.10.0"
 loguru = "^0.7.3"
 alive-progress = "^3.2.0"
 pyyaml = "^6.0.2"
+pendulum = "^3.0.0"
 
 [tool.poetry.group.dev.dependencies]
 streamlit = "^1.41.1"
