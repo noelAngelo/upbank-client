@@ -33,7 +33,7 @@ def load_upbank(config_path: pathlib.Path, destination: str):
 if __name__ == "__main__":
 
     # Determine the project root directory
-    project_root = pathlib.Path(__file__).resolve().parents[2]
+    project_root = pathlib.Path(__file__).resolve().parents[1]
 
     # Define the configuration directory and file path
     config_dir = project_root / "config"
