@@ -13,11 +13,17 @@ resource_defaults:
       page[size]: 30
   write_disposition: merge
   primary_key: id
+  data_selector: data
 
 resources:
   - name: accounts
     endpoint:
       path: accounts
+      params:
+        since:
+          type: incremental
+          cursor_path: attributes.createdAt
+          initial_value: 2019-08-03T00:00+11:00
 
   - name: transactions
     endpoint:
@@ -28,4 +34,3 @@ resources:
           type: incremental
           cursor_path: attributes.createdAt
           initial_value: 2025-01-25T00:00+11:00
-      data_selector: data
