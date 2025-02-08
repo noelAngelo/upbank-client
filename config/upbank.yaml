@@ -33,4 +33,4 @@ resources:
         since:
           type: incremental
           cursor_path: attributes.createdAt
-          initial_value: 2025-01-25T00:00+11:00
+          initial_value: 2025-01-01T00:00+11:00
