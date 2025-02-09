@@ -34,6 +34,9 @@ def load_upbank(config_path: pathlib.Path, destination: str):
     elif destination == "postgres":
         pipeline.run(upbank_source)
 
+    elif destination == "snowflake":
+        pipeline.run(upbank_source)
+
     else:
         raise ValueError(f"Unsupported destination: {destination}")
 
