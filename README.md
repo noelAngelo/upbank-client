@@ -6,7 +6,7 @@ A **data ingestion pipeline** built with [dlt](https://dlthub.com/) to extract t
 
 - Extracts transactions from the [Up Banking API](https://developer.up.com.au/).
 - Supports multiple destinations like **PostgreSQL, Snowflake, and more**.
-- Uses **dlt** for seamless extraction, transformation, and loading (ETL).
+- Uses **dlt** for seamless extraction and loading (EL).
 - Automates historical and incremental data loads.
 
 ## Installation
